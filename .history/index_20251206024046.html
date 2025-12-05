@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The ChitraHarsha GatiVigyan V12 | Commercial Enterprise</title>
+
+    <!-- React & Tailwind -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons (Loaded as global script for usage in React) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=JetBrains+Mono:wght@400&display=swap");
+
+      body {
+        background-color: #020204;
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        color: #e5e7eb;
+      }
+
+      /* Animations */
+      @keyframes blob {
+        0% {
+          transform: scale(1);
+        }
+        33% {
+          transform: scale(1.1);
+        }
+        66% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes scan {
+        0% {
+          top: 0;
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          top: 100%;
+          opacity: 0;
+        }
+      }
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes liquid-text {
+        0% {
+          opacity: 0;
+          filter: blur(5px);
+        }
+        100% {
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+
+      .animate-blob {
+        animation: blob 7s infinite;
+      }
+      .animate-scan {
+        animation: scan 2s linear infinite;
+      }
+      .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
+      }
+      .liquid-reveal {
+        animation: liquid-text 0.5s forwards;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(10, 10, 15, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-panel {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #10b981;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect, useRef, useMemo } = React;
+
+      // --- Mock Data from PDF ---
+      const PDF_DATA = {
+        employees: 330,
+        budgetMonthly: "₹2.26 Cr",
+        budgetAnnual: "₹27.12 Cr",
+        departments: [
+          { name: "HR Dept", count: 39, budget: "23 Lakh" },
+          { name: "Finance", count: 39, budget: "23 Lakh" },
+          { name: "Data Scientists", count: 39, budget: "23 Lakh" },
+          { name: "Brainstormers", count: 39, budget: "23 Lakh" },
+          { name: "Researchers", count: 39, budget: "23 Lakh" },
+          { name: "CCTV Monitoring", count: 5, budget: "4 Lakh" },
+          { name: "Interior Designers", count: 13, budget: "23 Lakh" },
+        ],
+      };
+
+      // --- Icon Helper ---
+      const Icon = ({ name, size = 24, className = "" }) => {
+        useEffect(() => {
+          lucide.createIcons();
+        }, [name]);
+        return (
+          <i
+            data-lucide={name}
+            width={size}
+            height={size}
+            className={className}
+          ></i>
+        );
+      };
+
+      // --- 1. Physics Background ---
+      const EnergyBackground = () => {
+        const canvasRef = useRef(null);
+        useEffect(() => {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext("2d");
+          let w = window.innerWidth;
+          let h = window.innerHeight;
+          canvas.width = w;
+          canvas.height = h;
+
+          const particles = Array.from({ length: 60 }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            size: Math.random() * 3,
+            color: Math.random() > 0.5 ? "#10b981" : "#3b82f6",
+          }));
+
+          const animate = () => {
+            ctx.fillStyle = "#020204";
+            ctx.fillRect(0, 0, w, h);
+            particles.forEach((p) => {
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fillStyle = p.color;
+              ctx.globalAlpha = 0.4;
+              ctx.fill();
+            });
+            // Neural Lines
+            ctx.strokeStyle = "rgba(16, 185, 129, 0.05)";
+            ctx.beginPath();
+            for (let i = 0; i < particles.length; i++) {
+              for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                if (Math.sqrt(dx * dx + dy * dy) < 100) {
+                  ctx.moveTo(particles[i].x, particles[i].y);
+                  ctx.lineTo(particles[j].x, particles[j].y);
+                }
+              }
+            }
+            ctx.stroke();
+            requestAnimationFrame(animate);
+          };
+          animate();
+        }, []);
+        return (
+          <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+          />
+        );
+      };
+
+      // --- 2. Kinetic Design Studio (Real World 3D Tool) ---
+      const KineticStudio = () => {
+        const canvasRef = useRef(null);
+        const [pressure, setPressure] = useState(50);
+        const [grid, setGrid] = useState(10);
+
+        // 3D Simulation Logic
+        useEffect(() => {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext("2d");
+          let angle = 0;
+
+          const render3D = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+
+            ctx.strokeStyle = "#10b981";
+            ctx.lineWidth = 1;
+
+            // Draw rotating wireframe grid (Piezoelectric Plate)
+            angle += 0.01;
+            const points = [];
+            const size = 100;
+
+            for (let i = 0; i <= grid; i++) {
+              for (let j = 0; j <= grid; j++) {
+                // Deform based on "Pressure"
+                const x = (i - grid / 2) * (size / grid) * 2;
+                const z = (j - grid / 2) * (size / grid) * 2;
+                const dist = Math.sqrt(x * x + z * z);
+                const y =
+                  Math.sin(dist * 0.1 - Date.now() * 0.005) * (pressure / 5); // Wave effect
+
+                // Isomteric Projection
+                const rx = x * Math.cos(angle) - z * Math.sin(angle);
+                const rz = x * Math.sin(angle) + z * Math.cos(angle);
+
+                const px = cx + rx;
+                const py = cy + y + rz * 0.5;
+                points.push({ x: px, y: py });
+
+                ctx.fillStyle = "#10b981";
+                ctx.fillRect(px, py, 2, 2);
+              }
+            }
+            requestAnimationFrame(render3D);
+          };
+          render3D();
+        }, [pressure, grid]);
+
+        return (
+          <div className="glass-panel rounded-xl p-6 h-full flex flex-col animate-fade-in-up">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-white font-bold flex items-center gap-2">
+                <Icon name="box" size={16} /> Kinetic Design Studio
+              </h3>
+              <span className="text-[10px] bg-emerald-900 text-emerald-400 px-2 py-1 rounded">
+                CAD MODULE
+              </span>
+            </div>
+            <div className="flex-1 bg-black/50 rounded-lg border border-gray-800 relative overflow-hidden mb-4">
+              <canvas
+                ref={canvasRef}
+                width="400"
+                height="300"
+                className="w-full h-full"
+              />
+              <div className="absolute bottom-2 right-2 text-[10px] text-gray-500 font-mono">
+                Rendering: WebGL-Sim
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs text-gray-400 flex justify-between">
+                  Traffic Pressure Load <span>{pressure} PSI</span>
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={pressure}
+                  onChange={(e) => setPressure(e.target.value)}
+                  className="w-full accent-emerald-500 h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-gray-400 flex justify-between">
+                  Grid Density{" "}
+                  <span>
+                    {grid}x{grid}
+                  </span>
+                </label>
+                <input
+                  type="range"
+                  min="5"
+                  max="20"
+                  value={grid}
+                  onChange={(e) => setGrid(e.target.value)}
+                  className="w-full accent-blue-500 h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+              <button className="w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded transition">
+                Export Blueprint (.CAD)
+              </button>
+            </div>
+          </div>
+        );
+      };
+
+      // --- 3. ChitraHarsha Live (Gemini Style) ---
+      const LiveSession = ({ onClose }) => {
+        const [status, setStatus] = useState("idle");
+        const [text, setText] = useState("Tap to speak...");
+        const [lang, setLang] = useState("English");
+
+        const phrases = {
+          English: "Optimizing Kinetic Energy Matrix...",
+          Hindi: "गतिज ऊर्जा मैट्रिक्स का अनुकूलन...",
+          Sanskrit: "गतिज उर्जा जालकस्य अनुकुलनम्...",
+        };
+
+        const start = () => {
+          setStatus("listening");
+          setText("Listening...");
+          setTimeout(() => {
+            setStatus("processing");
+            setText("Processing on MeghRaj Cloud...");
+            setTimeout(() => {
+              setStatus("speaking");
+              setText(phrases[lang]);
+            }, 2000);
+          }, 2000);
+        };
+
+        return (
+          <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center">
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 text-gray-400 hover:text-white"
+            >
+              <Icon name="x" size={32} />
+            </button>
+
+            {/* Language Switcher */}
+            <div className="flex gap-2 mb-8">
+              {["English", "Hindi", "Sanskrit"].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-4 py-1 rounded-full text-xs font-bold border ${
+                    lang === l
+                      ? "bg-emerald-600 border-emerald-500 text-white"
+                      : "border-gray-700 text-gray-500"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+
+            {/* The Orb */}
+            <div className="relative w-72 h-72 flex items-center justify-center mb-8">
+              <div
+                className={`absolute inset-0 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-full blur-3xl opacity-30 transition-all duration-500 ${
+                  status === "speaking" ? "scale-125" : "scale-100"
+                }`}
+              ></div>
+              <div
+                className={`relative w-48 h-48 bg-black rounded-full border border-white/10 flex items-center justify-center shadow-2xl transition-all duration-1000 ${
+                  status === "listening" ? "scale-90" : "scale-100"
+                }`}
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-tr from-emerald-400 to-blue-500 rounded-full opacity-50 blur-xl animate-blob`}
+                ></div>
+                <div className="z-10 text-white">
+                  {status === "idle" && <Icon name="mic" size={48} />}
+                  {status === "listening" && (
+                    <Icon name="mic" size={48} className="animate-bounce" />
+                  )}
+                  {status === "processing" && (
+                    <Icon name="cpu" size={48} className="animate-spin" />
+                  )}
+                  {status === "speaking" && (
+                    <Icon name="activity" size={48} className="animate-pulse" />
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Transcript */}
+            <div className="h-20 flex items-center justify-center">
+              <p
+                key={text}
+                className="text-2xl font-light text-white liquid-reveal"
+              >
+                {text}
+              </p>
+            </div>
+
+            <button
+              onClick={start}
+              className="mt-8 px-8 py-4 bg-emerald-600 rounded-full text-white font-bold shadow-lg hover:scale-105 transition"
+            >
+              {status === "idle" || status === "speaking"
+                ? "Start Interaction"
+                : "Processing..."}
+            </button>
+          </div>
+        );
+      };
+
+      // --- 4. Payment & Auth Modules ---
+      const AuthModal = ({ onLogin, onClose }) => {
+        const [step, setStep] = useState(1);
+        const [role, setRole] = useState("Job Applicant");
+
+        const login = () => {
+          setTimeout(
+            () =>
+              onLogin({
+                uid: "USR-" + Math.floor(Math.random() * 9999),
+                role: role,
+              }),
+            1500
+          );
+        };
+
+        return (
+          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-md glass rounded-2xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-blue-500 animate-scan"></div>
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 text-gray-500"
+              >
+                <Icon name="x" />
+              </button>
+
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-white flex justify-center gap-2 items-center">
+                  <Icon name="lock" size={20} className="text-emerald-400" />{" "}
+                  MeghRaj Secure Gateway
+                </h2>
+                <p className="text-xs text-gray-400 mt-1">
+                  Government of India Cloud (NIC)
+                </p>
+              </div>
+
+              {step === 1 ? (
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-xs text-gray-500 uppercase font-bold">
+                      Role
+                    </label>
+                    <select
+                      className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm mt-1"
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    >
+                      {[
+                        "Job Applicant",
+                        "Interior Designer",
+                        "Researcher",
+                        "Company User",
+                        "Founder",
+                      ].map((r) => (
+                        <option key={r}>{r}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Virtual ID / Email"
+                    className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm"
+                  />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm"
+                  />
+                  <button
+                    onClick={() => setStep(2)}
+                    className="w-full py-3 bg-white text-black font-bold rounded hover:bg-gray-200"
+                  >
+                    Proceed
+                  </button>
+                </div>
+              ) : (
+                <div className="text-center space-y-6">
+                  <div className="w-16 h-16 mx-auto bg-emerald-900/20 rounded-full flex items-center justify-center border border-emerald-500/50 relative">
+                    <Icon
+                      name="fingerprint"
+                      size={32}
+                      className="text-emerald-400 animate-pulse"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-300">
+                    Scanning Biometrics & Validating OTP...
+                  </p>
+                  <div className="flex justify-center gap-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-12 bg-black border border-gray-700 rounded flex items-center justify-center"
+                      >
+                        *
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={login}
+                    className="w-full py-3 bg-emerald-600 text-white font-bold rounded shadow-lg"
+                  >
+                    Access Dashboard
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      };
+
+      // --- 5. Dashboard ---
+      const Dashboard = ({ user }) => {
+        const [tab, setTab] = useState("overview");
+        const isFounder = user.role === "Founder";
+        const isDesigner =
+          user.role === "Interior Designer" || user.role === "Researcher";
+
+        return (
+          <div className="pt-24 px-6 pb-12 max-w-7xl mx-auto">
+            <div className="flex justify-between items-end mb-8 border-b border-gray-800 pb-6">
+              <div>
+                <h1 className="text-3xl font-light text-white">
+                  Enterprise Command
+                </h1>
+                <p className="text-emerald-400 text-sm mt-1">
+                  Welcome, <span className="font-bold">{user.role}</span> • ID:{" "}
+                  {user.uid}
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setTab("overview")}
+                  className={`px-4 py-2 rounded text-xs font-bold ${
+                    tab === "overview"
+                      ? "bg-emerald-600 text-white"
+                      : "bg-gray-800 text-gray-400"
+                  }`}
+                >
+                  Overview
+                </button>
+                {isDesigner && (
+                  <button
+                    onClick={() => setTab("studio")}
+                    className={`px-4 py-2 rounded text-xs font-bold ${
+                      tab === "studio"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-800 text-gray-400"
+                    }`}
+                  >
+                    Kinetic Studio
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {tab === "overview" && (
+              <>
+                {/* Founder Stats (PDF Data) */}
+                {isFounder ? (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div className="glass-panel p-6 rounded-xl">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-xs text-gray-400 uppercase">
+                          Employees
+                        </span>
+                        <Icon
+                          name="users"
+                          size={16}
+                          className="text-blue-400"
+                        />
+                      </div>
+                      <h3 className="text-3xl font-bold text-white">
+                        {PDF_DATA.employees}
+                      </h3>
+                    </div>
+                    <div className="glass-panel p-6 rounded-xl">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-xs text-gray-400 uppercase">
+                          Monthly Budget
+                        </span>
+                        <Icon
+                          name="trending-up"
+                          size={16}
+                          className="text-emerald-400"
+                        />
+                      </div>
+                      <h3 className="text-3xl font-bold text-white">
+                        {PDF_DATA.budgetMonthly}
+                      </h3>
+                    </div>
+                    <div className="glass-panel p-6 rounded-xl">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-xs text-gray-400 uppercase">
+                          Annual Budget
+                        </span>
+                        <Icon
+                          name="dollar-sign"
+                          size={16}
+                          className="text-purple-400"
+                        />
+                      </div>
+                      <h3 className="text-3xl font-bold text-white">
+                        {PDF_DATA.budgetAnnual}
+                      </h3>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg mb-8 flex items-center gap-4">
+                    <Icon name="briefcase" className="text-blue-400" />
+                    <div>
+                      <h4 className="text-white font-bold">
+                        Job Role Active: {user.role}
+                      </h4>
+                      <p className="text-xs text-gray-400">
+                        Access limited to department tools.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-2 glass-panel rounded-xl overflow-hidden">
+                    <div className="p-4 border-b border-gray-800">
+                      <h3 className="text-white font-bold text-sm">
+                        Department Allocations (PDF)
+                      </h3>
+                    </div>
+                    <table className="w-full text-sm text-left text-gray-400">
+                      <thead className="text-xs text-gray-500 uppercase bg-black/50">
+                        <tr>
+                          <th className="px-6 py-3">Dept</th>
+                          <th className="px-6 py-3">Count</th>
+                          <th className="px-6 py-3">Budget</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {PDF_DATA.departments.map((d, i) => (
+                          <tr
+                            key={i}
+                            className="border-b border-gray-800 hover:bg-white/5"
+                          >
+                            <td className="px-6 py-3 text-white">{d.name}</td>
+                            <td className="px-6 py-3">{d.count}</td>
+                            <td className="px-6 py-3 font-mono text-emerald-400">
+                              ₹ {d.budget}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="glass-panel rounded-xl p-6">
+                    <h3 className="text-white font-bold text-sm mb-4 flex gap-2 items-center">
+                      <Icon name="cloud" size={14} /> MeghRaj Vault
+                    </h3>
+                    <div className="space-y-2">
+                      {["Kinetic_Blueprint.pdf", "Employee_Manifest.enc"].map(
+                        (f, i) => (
+                          <div
+                            key={i}
+                            className="flex justify-between p-3 bg-white/5 rounded border border-gray-700 cursor-pointer hover:border-emerald-500"
+                          >
+                            <span className="text-xs text-gray-300">{f}</span>
+                            <Icon
+                              name="lock"
+                              size={12}
+                              className="text-emerald-500"
+                            />
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {tab === "studio" && <KineticStudio />}
+          </div>
+        );
+      };
+
+      // --- 6. Main App ---
+      const App = () => {
+        const [view, setView] = useState("home"); // home, login, dashboard
+        const [user, setUser] = useState(null);
+        const [showLive, setShowLive] = useState(false);
+        const [menuOpen, setMenuOpen] = useState(false);
+
+        const handleLogin = (userData) => {
+          setUser(userData);
+          setView("dashboard");
+        };
+
+        return (
+          <div className="min-h-screen relative">
+            <EnergyBackground />
+
+            {/* Navigation */}
+            <nav className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center glass bg-black/80">
+              <div
+                className="flex items-center gap-3 cursor-pointer"
+                onClick={() => setView("home")}
+              >
+                <div className="w-10 h-10 bg-emerald-900/30 rounded-full border border-emerald-500/50 flex items-center justify-center">
+                  <Icon name="zap" className="text-emerald-400" size={20} />
+                </div>
+                <div>
+                  <h1 className="text-white font-bold text-sm tracking-widest">
+                    GATIVIGYAN
+                  </h1>
+                  <p className="text-[9px] text-gray-500">
+                    ChitraHarsha Ventures
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                {user && (
+                  <span className="hidden md:inline text-[10px] bg-gray-900 border border-gray-700 px-2 py-1 rounded text-emerald-500">
+                    MeghRaj: CONNECTED
+                  </span>
+                )}
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="text-white"
+                >
+                  <Icon name="menu" />
+                </button>
+              </div>
+            </nav>
+
+            {/* Mobile Menu */}
+            {menuOpen && (
+              <div className="fixed inset-0 z-[45] bg-black/95 flex flex-col items-center justify-center gap-8 animate-fade-in">
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute top-6 right-6 text-white"
+                >
+                  <Icon name="x" size={32} />
+                </button>
+                <button
+                  onClick={() => {
+                    setView("home");
+                    setMenuOpen(false);
+                  }}
+                  className="text-2xl text-gray-400 hover:text-white"
+                >
+                  Home
+                </button>
+                {user && (
+                  <button
+                    onClick={() => {
+                      setView("dashboard");
+                      setMenuOpen(false);
+                    }}
+                    className="text-2xl text-emerald-400"
+                  >
+                    Dashboard
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    setUser(null);
+                    setView("home");
+                    setMenuOpen(false);
+                  }}
+                  className="text-xl text-red-400"
+                >
+                  {user ? "Logout" : "Close"}
+                </button>
+              </div>
+            )}
+
+            {/* Main Content */}
+            <main className="relative z-10">
+              {view === "home" && (
+                <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
+                  <div className="px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/20 text-emerald-400 text-[10px] font-bold tracking-widest mb-8 animate-fade-in">
+                    COMMERCIAL ENTERPRISE READY V12
+                  </div>
+                  <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter drop-shadow-2xl animate-fade-in">
+                    FUTURE{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-600">
+                      KINETICS
+                    </span>
+                  </h1>
+                  <p className="text-gray-400 max-w-2xl mb-12 text-lg font-light animate-fade-in">
+                    Integration of Kinetic Energy, Cloud AI, and Real-World
+                    Problem Solving. <br />
+                    <span className="text-emerald-500">
+                      Showcase Talent. Transform Lives.
+                    </span>
+                  </p>
+                  <div className="flex gap-4 animate-fade-in">
+                    <button
+                      onClick={() => setView("login")}
+                      className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-full shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:scale-105 transition flex items-center gap-2"
+                    >
+                      <Icon name="power" size={18} /> Initialize System
+                    </button>
+                    <button
+                      onClick={() => setShowLive(true)}
+                      className="px-8 py-4 border border-gray-700 bg-black/50 text-white font-bold rounded-full hover:bg-gray-800 transition flex items-center gap-2"
+                    >
+                      <Icon name="mic" size={18} /> Live Demo
+                    </button>
+                  </div>
+                  <div className="mt-16 flex gap-8 text-xs text-gray-500 border-t border-gray-800 pt-8">
+                    <span>10T SQL Support</span>
+                    <span>•</span>
+                    <span>DPDP Act 2023</span>
+                    <span>•</span>
+                    <span>Made in India</span>
+                  </div>
+                </div>
+              )}
+
+              {view === "login" && (
+                <AuthModal
+                  onLogin={handleLogin}
+                  onClose={() => setView("home")}
+                />
+              )}
+
+              {view === "dashboard" && user && <Dashboard user={user} />}
+            </main>
+
+            {/* Floating Live AI Button */}
+            {!showLive && (
+              <button
+                onClick={() => setShowLive(true)}
+                className="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-500 to-blue-600 flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform animate-bounce"
+              >
+                <Icon name="mic" className="text-white" size={28} />
+              </button>
+            )}
+
+            {/* Live AI Modal */}
+            {showLive && <LiveSession onClose={() => setShowLive(false)} />}
+
+            {/* Security Monitor */}
+            <div className="fixed bottom-4 left-4 hidden md:flex items-center gap-3 bg-black/80 border border-gray-800 p-2 rounded-lg z-30">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <span className="text-[10px] text-gray-400 font-mono uppercase">
+                SOC: Threat Level 0 | Encrypted
+              </span>
+            </div>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

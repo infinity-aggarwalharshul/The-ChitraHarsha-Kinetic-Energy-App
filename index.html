@@ -1,0 +1,1381 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChitraHarsha GatiVigyan V13 | AI-Powered Innovation Platform</title>
+    <meta name="description" content="Revolutionary AI-powered platform for kinetic energy innovation, research acceleration, and global problem-solving with 10T SQL support and quantum encryption." />
+    <meta name="keywords" content="AI research, kinetic energy, innovation platform, quantum encryption, SEO optimization, patent analysis, global solutions" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="ChitraHarsha GatiVigyan V13 - AI Innovation Platform" />
+    <meta property="og:description" content="Transform ideas into global solutions with AI-powered research and quantum-encrypted data processing." />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://chitraharsha-gativigyan.com" />
+
+    <!-- React & Tailwind -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons (Loaded as global script for usage in React) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=JetBrains+Mono:wght@400&display=swap");
+
+      body {
+        background-color: #020204;
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        color: #e5e7eb;
+      }
+
+      /* Animations */
+      @keyframes blob {
+        0% {
+          transform: scale(1);
+        }
+        33% {
+          transform: scale(1.1);
+        }
+        66% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes scan {
+        0% {
+          top: 0;
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          top: 100%;
+          opacity: 0;
+        }
+      }
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes liquid-text {
+        0% {
+          opacity: 0;
+          filter: blur(5px);
+        }
+        100% {
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+
+      .animate-blob {
+        animation: blob 7s infinite;
+      }
+      .animate-scan {
+        animation: scan 2s linear infinite;
+      }
+      .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
+      }
+      .liquid-reveal {
+        animation: liquid-text 0.5s forwards;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(10, 10, 15, 0.7);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-panel {
+        background: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #10b981;
+        border-radius: 4px;
+      }
+
+      /* Quantum Encryption Indicators */
+      .quantum-secure {
+        position: relative;
+        overflow: hidden;
+      }
+      .quantum-secure::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #00ff88, transparent);
+        animation: quantum-scan 3s infinite;
+      }
+      @keyframes quantum-scan {
+        0% { left: -100%; }
+        100% { left: 100%; }
+      }
+
+      /* AI Processing Indicators */
+      .ai-processing {
+        background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+        background-size: 400% 400%;
+        animation: ai-gradient 4s ease infinite;
+      }
+      @keyframes ai-gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* SEO Optimized Loading */
+      .seo-optimized {
+        will-change: transform;
+        transform: translateZ(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect, useRef, useMemo } = React;
+
+      // --- Enhanced Enterprise Data with AI Capabilities ---
+      const ENTERPRISE_DATA = {
+        employees: 330,
+        budgetMonthly: "₹2.26 Cr",
+        budgetAnnual: "₹27.12 Cr",
+        sqlCapacity: "10T",
+        encryptionLevel: "Quantum-256",
+        aiModels: 47,
+        patentsPending: 23,
+        globalReach: 195,
+        autoUpdateEnabled: true,
+        lastUpdate: "2024-12-06 03:15 UTC",
+        systemVersion: "13.0.0",
+        uptime: "99.97%",
+        departments: [
+          { name: "AI Research Lab", count: 45, budget: "45 Lakh", innovation: 98 },
+          { name: "Quantum Computing", count: 32, budget: "67 Lakh", innovation: 95 },
+          { name: "Patent Analytics", count: 28, budget: "34 Lakh", innovation: 92 },
+          { name: "SEO Intelligence", count: 25, budget: "28 Lakh", innovation: 89 },
+          { name: "Data Compression", count: 35, budget: "41 Lakh", innovation: 94 },
+          { name: "Global Solutions", count: 42, budget: "52 Lakh", innovation: 96 },
+          { name: "Security Ops", count: 18, budget: "31 Lakh", innovation: 91 },
+        ],
+        researchMetrics: {
+          papersAnalyzed: 2847392,
+          innovationScore: 94.7,
+          globalImpact: 87.3,
+          patentability: 91.2
+        }
+      };
+
+      // --- Icon Helper ---
+      const Icon = ({ name, size = 24, className = "" }) => {
+        useEffect(() => {
+          lucide.createIcons();
+        }, [name]);
+        return (
+          <i
+            data-lucide={name}
+            width={size}
+            height={size}
+            className={className}
+          ></i>
+        );
+      };
+
+      // --- 1. Physics Background ---
+      const EnergyBackground = () => {
+        const canvasRef = useRef(null);
+        useEffect(() => {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext("2d");
+          let w = window.innerWidth;
+          let h = window.innerHeight;
+          canvas.width = w;
+          canvas.height = h;
+
+          const particles = Array.from({ length: 60 }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            size: Math.random() * 3,
+            color: Math.random() > 0.5 ? "#10b981" : "#3b82f6",
+          }));
+
+          const animate = () => {
+            ctx.fillStyle = "#020204";
+            ctx.fillRect(0, 0, w, h);
+            particles.forEach((p) => {
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fillStyle = p.color;
+              ctx.globalAlpha = 0.4;
+              ctx.fill();
+            });
+            // Neural Lines
+            ctx.strokeStyle = "rgba(16, 185, 129, 0.05)";
+            ctx.beginPath();
+            for (let i = 0; i < particles.length; i++) {
+              for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                if (Math.sqrt(dx * dx + dy * dy) < 100) {
+                  ctx.moveTo(particles[i].x, particles[i].y);
+                  ctx.lineTo(particles[j].x, particles[j].y);
+                }
+              }
+            }
+            ctx.stroke();
+            requestAnimationFrame(animate);
+          };
+          animate();
+        }, []);
+        return (
+          <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+          />
+        );
+      };
+
+      // --- 2. Enhanced AI Innovation Research Engine with Google Scholar Integration ---
+      const InnovationEngine = () => {
+        const [query, setQuery] = useState("");
+        const [analyzing, setAnalyzing] = useState(false);
+        const [results, setResults] = useState(null);
+        const [scholarData, setScholarData] = useState(null);
+        const [compressionRatio, setCompressionRatio] = useState(0);
+
+        const analyzeInnovation = async () => {
+          setAnalyzing(true);
+          setCompressionRatio(0);
+          
+          // Simulate quantum data compression
+          const compressionInterval = setInterval(() => {
+            setCompressionRatio(prev => Math.min(prev + 12, 99.7));
+          }, 100);
+          
+          setTimeout(() => {
+            clearInterval(compressionInterval);
+            setCompressionRatio(99.7);
+            
+            // Enhanced AI analysis with Google Scholar simulation
+            setResults({
+              noveltyScore: Math.floor(Math.random() * 30) + 70,
+              globalImpact: Math.floor(Math.random() * 25) + 75,
+              patentability: Math.floor(Math.random() * 20) + 80,
+              marketPotential: Math.floor(Math.random() * 35) + 65,
+              similarPatents: Math.floor(Math.random() * 50) + 10,
+              researchPapers: Math.floor(Math.random() * 500) + 100,
+              transformativePotential: Math.random() > 0.3 ? "High" : "Medium",
+              dataSize: "2.4 TB",
+              compressedSize: "7.2 MB",
+              processingTime: "0.08s"
+            });
+            
+            // Google Scholar Integration (Premium Feature)
+            setScholarData({
+              citations: Math.floor(Math.random() * 5000) + 1000,
+              hIndex: Math.floor(Math.random() * 30) + 20,
+              relatedPapers: Math.floor(Math.random() * 200) + 50,
+              topJournals: ["Nature", "Science", "IEEE", "ACM"],
+              trendingTopics: ["Quantum Computing", "AI Ethics", "Sustainable Energy"],
+              innovationGap: Math.random() > 0.5 ? "Significant" : "Moderate"
+            });
+            
+            setAnalyzing(false);
+          }, 3500);
+        };
+
+        return (
+          <div className="glass-panel rounded-xl p-6 h-full quantum-secure">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-white font-bold flex items-center gap-2">
+                <Icon name="brain" size={16} /> AI Innovation Engine
+              </h3>
+              <span className="text-[10px] bg-purple-900 text-purple-400 px-2 py-1 rounded">
+                QUANTUM AI
+              </span>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs text-gray-400 mb-2 block">Research Query</label>
+                <textarea
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Describe your innovative idea..."
+                  className="w-full bg-black/50 border border-gray-700 rounded p-3 text-white text-sm h-20 resize-none"
+                />
+              </div>
+              
+              <button
+                onClick={analyzeInnovation}
+                disabled={!query || analyzing}
+                className="w-full py-3 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 text-white text-sm font-bold rounded transition flex items-center justify-center gap-2"
+              >
+                {analyzing ? (
+                  <><Icon name="loader" size={16} className="animate-spin" /> Analyzing...</>
+                ) : (
+                  <><Icon name="search" size={16} /> Analyze Innovation</>  
+                )}
+              </button>
+              
+              {analyzing && (
+                <div className="mt-4 bg-black/50 p-4 rounded-lg border border-purple-500/30">
+                  <div className="text-xs text-purple-400 mb-2 flex items-center gap-2">
+                    <Icon name="loader" size={12} className="animate-spin" />
+                    Quantum Data Compression Active
+                  </div>
+                  <div className="w-full bg-gray-800 rounded-full h-2 mb-2">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all duration-300" style={{width: `${compressionRatio}%`}}></div>
+                  </div>
+                  <div className="text-xs text-gray-400">Compression: {compressionRatio.toFixed(1)}%</div>
+                </div>
+              )}
+              
+              {results && (
+                <div className="space-y-3 mt-4">
+                  <div className="ai-processing p-4 rounded-lg">
+                    <div className="grid grid-cols-2 gap-3 text-xs mb-3">
+                      <div className="bg-black/30 p-2 rounded">
+                        <span className="text-gray-400">Novelty Score</span>
+                        <div className="text-emerald-400 font-bold">{results.noveltyScore}%</div>
+                      </div>
+                      <div className="bg-black/30 p-2 rounded">
+                        <span className="text-gray-400">Global Impact</span>
+                        <div className="text-blue-400 font-bold">{results.globalImpact}%</div>
+                      </div>
+                      <div className="bg-black/30 p-2 rounded">
+                        <span className="text-gray-400">Patentability</span>
+                        <div className="text-purple-400 font-bold">{results.patentability}%</div>
+                      </div>
+                      <div className="bg-black/30 p-2 rounded">
+                        <span className="text-gray-400">Market Potential</span>
+                        <div className="text-orange-400 font-bold">{results.marketPotential}%</div>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-gray-700 pt-3 mb-3">
+                      <div className="text-xs text-gray-400 mb-2">Research Intelligence</div>
+                      <div className="flex justify-between text-xs">
+                        <span>Similar Patents: <span className="text-red-400">{results.similarPatents}</span></span>
+                        <span>Research Papers: <span className="text-green-400">{results.researchPapers}</span></span>
+                      </div>
+                      <div className="mt-2 text-xs">
+                        <span className="text-gray-400">Transform Potential: </span>
+                        <span className={results.transformativePotential === "High" ? "text-emerald-400" : "text-yellow-400"}>
+                          {results.transformativePotential}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-gray-700 pt-3">
+                      <div className="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                        <Icon name="zap" size={10} /> Quantum Compression Stats
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-xs">
+                        <div>
+                          <span className="text-gray-500">Original:</span>
+                          <div className="text-white font-bold">{results.dataSize}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Compressed:</span>
+                          <div className="text-emerald-400 font-bold">{results.compressedSize}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Speed:</span>
+                          <div className="text-blue-400 font-bold">{results.processingTime}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {scholarData && (
+                    <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 p-4 rounded-lg border border-indigo-500/30">
+                      <div className="text-xs text-indigo-400 mb-3 flex items-center gap-2">
+                        <Icon name="graduation-cap" size={12} />
+                        Google Scholar Intelligence (Premium)
+                      </div>
+                      <div className="grid grid-cols-2 gap-2 text-xs mb-3">
+                        <div className="bg-black/30 p-2 rounded">
+                          <span className="text-gray-400">Citations</span>
+                          <div className="text-indigo-400 font-bold">{scholarData.citations.toLocaleString()}</div>
+                        </div>
+                        <div className="bg-black/30 p-2 rounded">
+                          <span className="text-gray-400">H-Index</span>
+                          <div className="text-purple-400 font-bold">{scholarData.hIndex}</div>
+                        </div>
+                      </div>
+                      <div className="text-xs mb-2">
+                        <span className="text-gray-400">Innovation Gap: </span>
+                        <span className="text-yellow-400 font-bold">{scholarData.innovationGap}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {scholarData.trendingTopics.map((topic, i) => (
+                          <span key={i} className="text-[9px] bg-indigo-900/50 text-indigo-300 px-2 py-1 rounded">
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      };
+
+      // --- 3. Kinetic Design Studio (Real World 3D Tool) ---
+      const KineticStudio = () => {
+        const canvasRef = useRef(null);
+        const [pressure, setPressure] = useState(50);
+        const [grid, setGrid] = useState(10);
+
+        // 3D Simulation Logic
+        useEffect(() => {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext("2d");
+          let angle = 0;
+
+          const render3D = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+
+            ctx.strokeStyle = "#10b981";
+            ctx.lineWidth = 1;
+
+            // Draw rotating wireframe grid (Piezoelectric Plate)
+            angle += 0.01;
+            const points = [];
+            const size = 100;
+
+            for (let i = 0; i <= grid; i++) {
+              for (let j = 0; j <= grid; j++) {
+                // Deform based on "Pressure"
+                const x = (i - grid / 2) * (size / grid) * 2;
+                const z = (j - grid / 2) * (size / grid) * 2;
+                const dist = Math.sqrt(x * x + z * z);
+                const y =
+                  Math.sin(dist * 0.1 - Date.now() * 0.005) * (pressure / 5); // Wave effect
+
+                // Isomteric Projection
+                const rx = x * Math.cos(angle) - z * Math.sin(angle);
+                const rz = x * Math.sin(angle) + z * Math.cos(angle);
+
+                const px = cx + rx;
+                const py = cy + y + rz * 0.5;
+                points.push({ x: px, y: py });
+
+                ctx.fillStyle = "#10b981";
+                ctx.fillRect(px, py, 2, 2);
+              }
+            }
+            requestAnimationFrame(render3D);
+          };
+          render3D();
+        }, [pressure, grid]);
+
+        return (
+          <div className="glass-panel rounded-xl p-6 h-full flex flex-col animate-fade-in-up">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-white font-bold flex items-center gap-2">
+                <Icon name="box" size={16} /> Kinetic Design Studio
+              </h3>
+              <span className="text-[10px] bg-emerald-900 text-emerald-400 px-2 py-1 rounded">
+                CAD MODULE
+              </span>
+            </div>
+            <div className="flex-1 bg-black/50 rounded-lg border border-gray-800 relative overflow-hidden mb-4">
+              <canvas
+                ref={canvasRef}
+                width="400"
+                height="300"
+                className="w-full h-full"
+              />
+              <div className="absolute bottom-2 right-2 text-[10px] text-gray-500 font-mono">
+                Rendering: WebGL-Sim
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs text-gray-400 flex justify-between">
+                  Traffic Pressure Load <span>{pressure} PSI</span>
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={pressure}
+                  onChange={(e) => setPressure(e.target.value)}
+                  className="w-full accent-emerald-500 h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-gray-400 flex justify-between">
+                  Grid Density{" "}
+                  <span>
+                    {grid}x{grid}
+                  </span>
+                </label>
+                <input
+                  type="range"
+                  min="5"
+                  max="20"
+                  value={grid}
+                  onChange={(e) => setGrid(e.target.value)}
+                  className="w-full accent-blue-500 h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+              <button className="w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded transition">
+                Export Blueprint (.CAD)
+              </button>
+            </div>
+          </div>
+        );
+      };
+
+      // --- 4. Enhanced SEO Blog Engine with AI Image Generation ---
+      const SEOBlogEngine = () => {
+        const [blogs, setBlogs] = useState([
+          {
+            id: 1,
+            title: "Revolutionary Kinetic Energy Harvesting: Transforming Urban Infrastructure for Sustainable Future",
+            excerpt: "Discover how advanced piezoelectric systems are revolutionizing energy generation from foot traffic, vehicle movement, and environmental vibrations...",
+            readTime: "8 min",
+            seoScore: 98,
+            keywords: ["kinetic energy", "sustainable technology", "urban infrastructure"],
+            status: "published",
+            views: 15420,
+            engagement: 94.2,
+            wordCount: 1547,
+            images: 2,
+            seoRank: "#1 Google",
+            backlinks: 342
+          },
+          {
+            id: 2,
+            title: "AI-Powered Patent Analysis: How Machine Learning is Accelerating Innovation Discovery",
+            excerpt: "Explore cutting-edge AI algorithms that analyze millions of patents to identify innovation gaps and predict breakthrough technologies...",
+            readTime: "12 min",
+            seoScore: 96,
+            keywords: ["AI patent analysis", "machine learning", "innovation discovery"],
+            status: "draft",
+            views: 8930,
+            engagement: 91.7,
+            wordCount: 1623,
+            images: 2,
+            seoRank: "#3 Google",
+            backlinks: 187
+          },
+          {
+            id: 3,
+            title: "Quantum Data Compression: Achieving 99.7% Storage Efficiency in Enterprise Systems",
+            excerpt: "Revolutionary quantum algorithms enable unprecedented data compression ratios while maintaining lightning-fast access speeds and zero data loss...",
+            readTime: "10 min",
+            seoScore: 97,
+            keywords: ["quantum compression", "data storage", "enterprise efficiency"],
+            status: "published",
+            views: 12340,
+            engagement: 92.8,
+            wordCount: 1589,
+            images: 2,
+            seoRank: "#2 Google",
+            backlinks: 256
+          }
+        ]);
+        const [generating, setGenerating] = useState(false);
+
+        const generateBlog = () => {
+          setGenerating(true);
+          setTimeout(() => {
+            const titles = [
+              "Blockchain Integration in Kinetic Energy Systems: The Future of Decentralized Power",
+              "Neural Networks for Real-Time Patent Infringement Detection: A Game Changer",
+              "Edge Computing Meets Quantum Encryption: Securing IoT at Scale",
+              "Sustainable AI: Reducing Carbon Footprint in Machine Learning Operations"
+            ];
+            const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+            
+            const newBlog = {
+              id: blogs.length + 1,
+              title: randomTitle,
+              excerpt: "AI-generated comprehensive analysis with SEO optimization, keyword research, and innovative insights for global impact...",
+              readTime: Math.floor(Math.random() * 5) + 8 + " min",
+              seoScore: Math.floor(Math.random() * 5) + 95,
+              keywords: ["AI innovation", "technology trends", "global solutions"],
+              status: "generating",
+              views: 0,
+              engagement: 0,
+              wordCount: Math.floor(Math.random() * 200) + 1500,
+              images: 2,
+              seoRank: "Optimizing...",
+              backlinks: 0
+            };
+            setBlogs([...blogs, newBlog]);
+            setGenerating(false);
+          }, 4000);
+        };
+
+        return (
+          <div className="glass-panel rounded-xl p-6 h-full">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-white font-bold flex items-center gap-2">
+                <Icon name="edit" size={16} /> SEO Blog Engine
+              </h3>
+              <button
+                onClick={generateBlog}
+                disabled={generating}
+                className="text-[10px] bg-blue-600 hover:bg-blue-500 disabled:bg-gray-700 text-white px-3 py-1 rounded flex items-center gap-1"
+              >
+                {generating ? <Icon name="loader" size={10} className="animate-spin" /> : <Icon name="plus" size={10} />}
+                {generating ? "Generating..." : "AI Generate"}
+              </button>
+            </div>
+            
+            <div className="space-y-3 max-h-96 overflow-y-auto">
+              {blogs.map((blog) => (
+                <div key={blog.id} className="bg-black/30 p-4 rounded-lg border border-gray-700">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="text-white text-sm font-semibold line-clamp-2 flex-1">
+                      {blog.title}
+                    </h4>
+                    <span className={`text-[10px] px-2 py-1 rounded ml-2 ${
+                      blog.status === 'published' ? 'bg-green-900 text-green-400' :
+                      blog.status === 'draft' ? 'bg-yellow-900 text-yellow-400' :
+                      'bg-purple-900 text-purple-400'
+                    }`}>
+                      {blog.status.toUpperCase()}
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-400 text-xs mb-3 line-clamp-2">{blog.excerpt}</p>
+                  
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-xs">
+                      <div className="flex gap-3">
+                        <span className="text-gray-500">SEO: <span className="text-emerald-400">{blog.seoScore}%</span></span>
+                        <span className="text-gray-500">{blog.readTime}</span>
+                        <span className="text-gray-500">{blog.wordCount} words</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-blue-400">{blog.views.toLocaleString()} views</span>
+                        <span className="text-purple-400">{blog.engagement}% eng</span>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center text-xs">
+                      <div className="flex gap-2 items-center">
+                        <Icon name="image" size={10} className="text-pink-400" />
+                        <span className="text-gray-500">{blog.images} AI Images</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-orange-400">{blog.seoRank}</span>
+                        <span className="text-gray-500">{blog.backlinks} backlinks</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-1 mt-2">
+                    {blog.keywords.map((keyword, i) => (
+                      <span key={i} className="text-[9px] bg-gray-800 text-gray-300 px-2 py-1 rounded">
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      };
+
+      // --- 5. ChitraHarsha Live (Gemini Style) ---
+      const LiveSession = ({ onClose }) => {
+        const [status, setStatus] = useState("idle");
+        const [text, setText] = useState("Tap to speak...");
+        const [lang, setLang] = useState("English");
+
+        const phrases = {
+          English: "Optimizing Kinetic Energy Matrix...",
+          Hindi: "गतिज ऊर्जा मैट्रिक्स का अनुकूलन...",
+          Sanskrit: "गतिज उर्जा जालकस्य अनुकुलनम्...",
+        };
+
+        const start = () => {
+          setStatus("listening");
+          setText("Listening...");
+          setTimeout(() => {
+            setStatus("processing");
+            setText("Processing on MeghRaj Cloud...");
+            setTimeout(() => {
+              setStatus("speaking");
+              setText(phrases[lang]);
+            }, 2000);
+          }, 2000);
+        };
+
+        return (
+          <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center">
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 text-gray-400 hover:text-white"
+            >
+              <Icon name="x" size={32} />
+            </button>
+
+            {/* Language Switcher */}
+            <div className="flex gap-2 mb-8">
+              {["English", "Hindi", "Sanskrit"].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-4 py-1 rounded-full text-xs font-bold border ${
+                    lang === l
+                      ? "bg-emerald-600 border-emerald-500 text-white"
+                      : "border-gray-700 text-gray-500"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+
+            {/* The Orb */}
+            <div className="relative w-72 h-72 flex items-center justify-center mb-8">
+              <div
+                className={`absolute inset-0 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-full blur-3xl opacity-30 transition-all duration-500 ${
+                  status === "speaking" ? "scale-125" : "scale-100"
+                }`}
+              ></div>
+              <div
+                className={`relative w-48 h-48 bg-black rounded-full border border-white/10 flex items-center justify-center shadow-2xl transition-all duration-1000 ${
+                  status === "listening" ? "scale-90" : "scale-100"
+                }`}
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-tr from-emerald-400 to-blue-500 rounded-full opacity-50 blur-xl animate-blob`}
+                ></div>
+                <div className="z-10 text-white">
+                  {status === "idle" && <Icon name="mic" size={48} />}
+                  {status === "listening" && (
+                    <Icon name="mic" size={48} className="animate-bounce" />
+                  )}
+                  {status === "processing" && (
+                    <Icon name="cpu" size={48} className="animate-spin" />
+                  )}
+                  {status === "speaking" && (
+                    <Icon name="activity" size={48} className="animate-pulse" />
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Transcript */}
+            <div className="h-20 flex items-center justify-center">
+              <p
+                key={text}
+                className="text-2xl font-light text-white liquid-reveal"
+              >
+                {text}
+              </p>
+            </div>
+
+            <button
+              onClick={start}
+              className="mt-8 px-8 py-4 bg-emerald-600 rounded-full text-white font-bold shadow-lg hover:scale-105 transition"
+            >
+              {status === "idle" || status === "speaking"
+                ? "Start Interaction"
+                : "Processing..."}
+            </button>
+          </div>
+        );
+      };
+
+      // --- 4. Payment & Auth Modules ---
+      const AuthModal = ({ onLogin, onClose }) => {
+        const [step, setStep] = useState(1);
+        const [role, setRole] = useState("Job Applicant");
+
+        const login = () => {
+          setTimeout(
+            () =>
+              onLogin({
+                uid: "USR-" + Math.floor(Math.random() * 9999),
+                role: role,
+              }),
+            1500
+          );
+        };
+
+        return (
+          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-md glass rounded-2xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-blue-500 animate-scan"></div>
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 text-gray-500"
+              >
+                <Icon name="x" />
+              </button>
+
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-white flex justify-center gap-2 items-center">
+                  <Icon name="lock" size={20} className="text-emerald-400" />{" "}
+                  MeghRaj Secure Gateway
+                </h2>
+                <p className="text-xs text-gray-400 mt-1">
+                  Government of India Cloud (NIC)
+                </p>
+              </div>
+
+              {step === 1 ? (
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-xs text-gray-500 uppercase font-bold">
+                      Role
+                    </label>
+                    <select
+                      className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm mt-1"
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    >
+                      {[
+                        "Job Applicant",
+                        "Interior Designer",
+                        "Researcher",
+                        "Company User",
+                        "Founder",
+                      ].map((r) => (
+                        <option key={r}>{r}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Virtual ID / Email"
+                    className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm"
+                  />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="w-full bg-black border border-gray-700 rounded p-3 text-white text-sm"
+                  />
+                  <button
+                    onClick={() => setStep(2)}
+                    className="w-full py-3 bg-white text-black font-bold rounded hover:bg-gray-200"
+                  >
+                    Proceed
+                  </button>
+                </div>
+              ) : (
+                <div className="text-center space-y-6">
+                  <div className="w-16 h-16 mx-auto bg-emerald-900/20 rounded-full flex items-center justify-center border border-emerald-500/50 relative">
+                    <Icon
+                      name="fingerprint"
+                      size={32}
+                      className="text-emerald-400 animate-pulse"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-300">
+                    Scanning Biometrics & Validating OTP...
+                  </p>
+                  <div className="flex justify-center gap-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-12 bg-black border border-gray-700 rounded flex items-center justify-center"
+                      >
+                        *
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={login}
+                    className="w-full py-3 bg-emerald-600 text-white font-bold rounded shadow-lg"
+                  >
+                    Access Dashboard
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      };
+
+      // --- 6. Enhanced Dashboard ---
+      const Dashboard = ({ user }) => {
+        const [tab, setTab] = useState("overview");
+        const isFounder = user.role === "Founder";
+        const isDesigner = user.role === "Interior Designer" || user.role === "Researcher";
+        const isPremium = user.role === "Founder" || user.role === "Researcher";
+
+        return (
+          <div className="pt-24 px-6 pb-12 max-w-7xl mx-auto">
+            <div className="flex justify-between items-end mb-8 border-b border-gray-800 pb-6">
+              <div>
+                <h1 className="text-3xl font-light text-white">
+                  Enterprise Command
+                </h1>
+                <p className="text-emerald-400 text-sm mt-1">
+                  Welcome, <span className="font-bold">{user.role}</span> • ID:{" "}
+                  {user.uid}
+                </p>
+              </div>
+              <div className="flex gap-2 flex-wrap">
+                <button
+                  onClick={() => setTab("overview")}
+                  className={`px-4 py-2 rounded text-xs font-bold ${
+                    tab === "overview"
+                      ? "bg-emerald-600 text-white"
+                      : "bg-gray-800 text-gray-400"
+                  }`}
+                >
+                  Overview
+                </button>
+                {isPremium && (
+                  <button
+                    onClick={() => setTab("research")}
+                    className={`px-4 py-2 rounded text-xs font-bold ${
+                      tab === "research"
+                        ? "bg-purple-600 text-white"
+                        : "bg-gray-800 text-gray-400"
+                    }`}
+                  >
+                    AI Research
+                  </button>
+                )}
+                {isDesigner && (
+                  <button
+                    onClick={() => setTab("studio")}
+                    className={`px-4 py-2 rounded text-xs font-bold ${
+                      tab === "studio"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-800 text-gray-400"
+                    }`}
+                  >
+                    Kinetic Studio
+                  </button>
+                )}
+                {isFounder && (
+                  <button
+                    onClick={() => setTab("seo")}
+                    className={`px-4 py-2 rounded text-xs font-bold ${
+                      tab === "seo"
+                        ? "bg-orange-600 text-white"
+                        : "bg-gray-800 text-gray-400"
+                    }`}
+                  >
+                    SEO Engine
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {tab === "overview" && (
+              <>
+                {/* Enhanced Enterprise Stats */}
+                {isFounder ? (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                      <div className="glass-panel p-6 rounded-xl quantum-secure">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">Employees</span>
+                          <Icon name="users" size={16} className="text-blue-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.employees}</h3>
+                      </div>
+                      <div className="glass-panel p-6 rounded-xl quantum-secure">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">SQL Capacity</span>
+                          <Icon name="database" size={16} className="text-emerald-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.sqlCapacity}</h3>
+                      </div>
+                      <div className="glass-panel p-6 rounded-xl quantum-secure">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">AI Models</span>
+                          <Icon name="brain" size={16} className="text-purple-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.aiModels}</h3>
+                      </div>
+                      <div className="glass-panel p-6 rounded-xl quantum-secure">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">Global Reach</span>
+                          <Icon name="globe" size={16} className="text-orange-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.globalReach}</h3>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                      <div className="glass-panel p-6 rounded-xl">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">Innovation Score</span>
+                          <Icon name="trending-up" size={16} className="text-emerald-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.researchMetrics.innovationScore}%</h3>
+                      </div>
+                      <div className="glass-panel p-6 rounded-xl">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">Patents Pending</span>
+                          <Icon name="shield" size={16} className="text-blue-400" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white">{ENTERPRISE_DATA.patentsPending}</h3>
+                      </div>
+                      <div className="glass-panel p-6 rounded-xl">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-xs text-gray-400 uppercase">Papers Analyzed</span>
+                          <Icon name="file-text" size={16} className="text-purple-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white">{(ENTERPRISE_DATA.researchMetrics.papersAnalyzed / 1000000).toFixed(1)}M</h3>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg mb-8 flex items-center gap-4">
+                    <Icon name="briefcase" className="text-blue-400" />
+                    <div>
+                      <h4 className="text-white font-bold">
+                        Job Role Active: {user.role}
+                      </h4>
+                      <p className="text-xs text-gray-400">
+                        Access limited to department tools.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-2 glass-panel rounded-xl overflow-hidden">
+                    <div className="p-4 border-b border-gray-800">
+                      <h3 className="text-white font-bold text-sm">
+                        Department Allocations (PDF)
+                      </h3>
+                    </div>
+                    <table className="w-full text-sm text-left text-gray-400">
+                      <thead className="text-xs text-gray-500 uppercase bg-black/50">
+                        <tr>
+                          <th className="px-6 py-3">Dept</th>
+                          <th className="px-6 py-3">Count</th>
+                          <th className="px-6 py-3">Budget</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {ENTERPRISE_DATA.departments.map((d, i) => (
+                          <tr
+                            key={i}
+                            className="border-b border-gray-800 hover:bg-white/5"
+                          >
+                            <td className="px-6 py-3 text-white flex items-center gap-2">
+                              {d.name}
+                              <div className={`w-2 h-2 rounded-full ${
+                                d.innovation > 95 ? 'bg-emerald-400' :
+                                d.innovation > 90 ? 'bg-blue-400' : 'bg-yellow-400'
+                              }`}></div>
+                            </td>
+                            <td className="px-6 py-3">{d.count}</td>
+                            <td className="px-6 py-3 font-mono text-emerald-400">
+                              ₹ {d.budget}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="glass-panel rounded-xl p-6">
+                    <h3 className="text-white font-bold text-sm mb-4 flex gap-2 items-center">
+                      <Icon name="cloud" size={14} /> MeghRaj Vault
+                    </h3>
+                    <div className="space-y-2">
+                      {["Kinetic_Blueprint.pdf", "Employee_Manifest.enc"].map(
+                        (f, i) => (
+                          <div
+                            key={i}
+                            className="flex justify-between p-3 bg-white/5 rounded border border-gray-700 cursor-pointer hover:border-emerald-500"
+                          >
+                            <span className="text-xs text-gray-300">{f}</span>
+                            <Icon
+                              name="lock"
+                              size={12}
+                              className="text-emerald-500"
+                            />
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {tab === "research" && <InnovationEngine />}
+            {tab === "studio" && <KineticStudio />}
+            {tab === "seo" && <SEOBlogEngine />}
+          </div>
+        );
+      };
+
+      // --- 6. Main App ---
+      const App = () => {
+        const [view, setView] = useState("home"); // home, login, dashboard
+        const [user, setUser] = useState(null);
+        const [showLive, setShowLive] = useState(false);
+        const [menuOpen, setMenuOpen] = useState(false);
+
+        const handleLogin = (userData) => {
+          setUser(userData);
+          setView("dashboard");
+        };
+
+        return (
+          <div className="min-h-screen relative">
+            <EnergyBackground />
+
+            {/* Navigation */}
+            <nav className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center glass bg-black/80">
+              <div
+                className="flex items-center gap-3 cursor-pointer"
+                onClick={() => setView("home")}
+              >
+                <div className="w-10 h-10 bg-emerald-900/30 rounded-full border border-emerald-500/50 flex items-center justify-center">
+                  <Icon name="zap" className="text-emerald-400" size={20} />
+                </div>
+                <div>
+                  <h1 className="text-white font-bold text-sm tracking-widest">
+                    GATIVIGYAN
+                  </h1>
+                  <p className="text-[9px] text-gray-500">
+                    ChitraHarsha Ventures
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                {user && (
+                  <span className="hidden md:inline text-[10px] bg-gray-900 border border-gray-700 px-2 py-1 rounded text-emerald-500">
+                    MeghRaj: CONNECTED
+                  </span>
+                )}
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="text-white"
+                >
+                  <Icon name="menu" />
+                </button>
+              </div>
+            </nav>
+
+            {/* Mobile Menu */}
+            {menuOpen && (
+              <div className="fixed inset-0 z-[45] bg-black/95 flex flex-col items-center justify-center gap-8 animate-fade-in">
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute top-6 right-6 text-white"
+                >
+                  <Icon name="x" size={32} />
+                </button>
+                <button
+                  onClick={() => {
+                    setView("home");
+                    setMenuOpen(false);
+                  }}
+                  className="text-2xl text-gray-400 hover:text-white"
+                >
+                  Home
+                </button>
+                {user && (
+                  <button
+                    onClick={() => {
+                      setView("dashboard");
+                      setMenuOpen(false);
+                    }}
+                    className="text-2xl text-emerald-400"
+                  >
+                    Dashboard
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    setUser(null);
+                    setView("home");
+                    setMenuOpen(false);
+                  }}
+                  className="text-xl text-red-400"
+                >
+                  {user ? "Logout" : "Close"}
+                </button>
+              </div>
+            )}
+
+            {/* Main Content */}
+            <main className="relative z-10">
+              {view === "home" && (
+                <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
+                  <div className="px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-900/20 text-emerald-400 text-[10px] font-bold tracking-widest mb-8 animate-fade-in quantum-secure">
+                    QUANTUM AI ENTERPRISE V13 • PATENT PROTECTED
+                  </div>
+                  <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter drop-shadow-2xl animate-fade-in">
+                    AI{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-600">
+                      INNOVATION
+                    </span>
+                  </h1>
+                  <p className="text-gray-400 max-w-3xl mb-8 text-lg font-light animate-fade-in">
+                    Revolutionary AI-powered platform combining Kinetic Energy Innovation, 
+                    Quantum Data Compression, Patent Analysis, and Global Problem Solving. <br />
+                    <span className="text-emerald-500">
+                      Transform Ideas into Global Solutions.
+                    </span>
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl">
+                    <div className="glass-panel p-4 rounded-lg text-center">
+                      <Icon name="database" className="text-emerald-400 mx-auto mb-2" size={24} />
+                      <div className="text-white font-bold">10T SQL</div>
+                      <div className="text-xs text-gray-400">Support</div>
+                    </div>
+                    <div className="glass-panel p-4 rounded-lg text-center">
+                      <Icon name="shield" className="text-blue-400 mx-auto mb-2" size={24} />
+                      <div className="text-white font-bold">Quantum</div>
+                      <div className="text-xs text-gray-400">Encryption</div>
+                    </div>
+                    <div className="glass-panel p-4 rounded-lg text-center">
+                      <Icon name="brain" className="text-purple-400 mx-auto mb-2" size={24} />
+                      <div className="text-white font-bold">47 AI</div>
+                      <div className="text-xs text-gray-400">Models</div>
+                    </div>
+                    <div className="glass-panel p-4 rounded-lg text-center">
+                      <Icon name="globe" className="text-orange-400 mx-auto mb-2" size={24} />
+                      <div className="text-white font-bold">195</div>
+                      <div className="text-xs text-gray-400">Countries</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 animate-fade-in">
+                    <button
+                      onClick={() => setView("login")}
+                      className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-full shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:scale-105 transition flex items-center gap-2"
+                    >
+                      <Icon name="power" size={18} /> Initialize System
+                    </button>
+                    <button
+                      onClick={() => setShowLive(true)}
+                      className="px-8 py-4 border border-gray-700 bg-black/50 text-white font-bold rounded-full hover:bg-gray-800 transition flex items-center gap-2"
+                    >
+                      <Icon name="mic" size={18} /> Live Demo
+                    </button>
+                  </div>
+                  <div className="mt-16 flex flex-wrap gap-4 justify-center text-xs text-gray-500 border-t border-gray-800 pt-8">
+                    <span className="flex items-center gap-1"><Icon name="database" size={12} /> 10T SQL Support</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Icon name="shield" size={12} /> Quantum Encrypted</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Icon name="zap" size={12} /> Lightning Fast</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Icon name="globe" size={12} /> Global Ready</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Icon name="award" size={12} /> Patent Protected</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Icon name="flag" size={12} /> Made in India</span>
+                  </div>
+                </div>
+              )}
+
+              {view === "login" && (
+                <AuthModal
+                  onLogin={handleLogin}
+                  onClose={() => setView("home")}
+                />
+              )}
+
+              {view === "dashboard" && user && <Dashboard user={user} />}
+            </main>
+
+            {/* Floating Live AI Button */}
+            {!showLive && (
+              <button
+                onClick={() => setShowLive(true)}
+                className="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-500 to-blue-600 flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform animate-bounce"
+              >
+                <Icon name="mic" className="text-white" size={28} />
+              </button>
+            )}
+
+            {/* Live AI Modal */}
+            {showLive && <LiveSession onClose={() => setShowLive(false)} />}
+
+            {/* Enhanced Security & System Monitor */}
+            <div className="fixed bottom-4 left-4 hidden md:block z-30">
+              <div className="bg-black/80 border border-gray-800 p-3 rounded-lg space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                  <span className="text-[10px] text-gray-400 font-mono uppercase">
+                    SOC: Threat Level 0
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="shield" size={10} className="text-blue-400" />
+                  <span className="text-[10px] text-gray-400 font-mono">
+                    Quantum-256 Active
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="database" size={10} className="text-purple-400" />
+                  <span className="text-[10px] text-gray-400 font-mono">
+                    10T SQL: {ENTERPRISE_DATA.uptime}
+                  </span>
+                </div>
+                {ENTERPRISE_DATA.autoUpdateEnabled && (
+                  <div className="flex items-center gap-2">
+                    <Icon name="refresh-cw" size={10} className="text-emerald-400" />
+                    <span className="text-[10px] text-gray-400 font-mono">
+                      Auto-Update: ON
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
